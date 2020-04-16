@@ -8,12 +8,12 @@ BRANCH="gh-pages"
 
 echo "Installing gems..."
 
-bundle config path vendor/bundle
-bundle install --jobs 4 --retry 3
+JEKYLL_ENV=production bundle config path vendor/bundle
+JEKYLL_ENV=production bundle install --jobs 4 --retry 3
 
 echo "Building Jekyll site..."
 
-JEKYLL_ENV=production bundle exec jekyll build
+JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,__prod.yml
 
 echo "Publishing..."
 
